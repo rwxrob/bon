@@ -1,11 +1,12 @@
-# 🌳 Go Bonzai™ Composite Command Tree
+# 🌳 Go Bonzai™ Utility Branch
 
-*Create a new GitHub project using this template and change this
-README.md to match your project. Make all your template changes before
-making your first commit.*
+*🚧 This is only a placeholder for the moment. 🚧*
 
-[![GoDoc](https://godoc.org/github.com/rwxrob/foo?status.svg)](https://godoc.org/github.com/rwxrob/foo)
+[![GoDoc](https://godoc.org/github.com/rwxrob/bon?status.svg)](https://godoc.org/github.com/rwxrob/bon)
 [![License](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](LICENSE)
+
+The `bon` branch is for everything to help with development, use, and
+discovery of Bonzai branches and leaf commands (`z bon init foo`, etc.)
 
 ## Install
 
@@ -15,7 +16,7 @@ Bonzai command tree.
 Standalone
 
 ```
-go install github.com/rwxrob/foo/foo@latest
+go install github.com/rwxrob/bon/bon@latest
 ```
 
 Composed
@@ -25,12 +26,12 @@ package z
 
 import (
 	Z "github.com/rwxrob/bonzai/z"
-	"github.com/rwxrob/foo"
+	"github.com/rwxrob/bon"
 )
 
 var Cmd = &Z.Cmd{
 	Name:     `z`,
-	Commands: []*Z.Cmd{help.Cmd, foo.Cmd},
+	Commands: []*Z.Cmd{help.Cmd, bon.Cmd},
 }
 ```
 
@@ -41,7 +42,7 @@ To activate bash completion just use the `complete -C` option from your
 completion is done by the program itself.
 
 ```
-complete -C foo foo
+complete -C bon bon
 ```
 
 If you don't have bash or tab completion check use the shortcut
@@ -52,15 +53,3 @@ commands instead.
 All documentation (like manual pages) has been embedded into the source
 code of the application. See the source or run the program with help to
 access it.
-
-## Reminders
-
-* Change `foo` every place to your project name (`git grep foo`)
-* Remove anything you don't need
-* Change `.github/FUNDING.yaml` to your own information
-* Update `.gitignore` to your liking
-* Will need to `go get -u` to update dependencies
-
-## Other Examples
-
-* <https://github.com/rwxrob/z> - the one that started it all
