@@ -16,7 +16,7 @@ Bonzai command tree.
 Standalone
 
 ```
-go install github.com/rwxrob/bon/bon@latest
+go install github.com/rwxrob/bon/cmd/bon@latest
 ```
 
 Composed
