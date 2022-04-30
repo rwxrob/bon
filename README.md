@@ -1,12 +1,11 @@
 # 🌳 Go Bonzai™ Utility Branch
 
-*🚧 This is only a placeholder for the moment. 🚧*
-
 [![GoDoc](https://godoc.org/github.com/rwxrob/bon?status.svg)](https://godoc.org/github.com/rwxrob/bon)
 [![License](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](LICENSE)
 
-The `bon` branch is for everything to help with development, use, and
-discovery of Bonzai branches and leaf commands (`z bon init foo`, etc.)
+The `bon` branch is a place to gather all the commands for everything to
+help with development, use, distribution, and discovery of Bonzai
+branches and leaf commands.
 
 ## Install
 
