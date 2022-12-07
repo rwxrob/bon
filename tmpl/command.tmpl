@@ -1,0 +1,15 @@
+
+//go:embed desc/help.md
+var helpdoc string
+
+var Cmd = &Z.Cmd{
+	Name:        `command`,
+	Aliases:     []string{`cmd`},
+	Summary:     `a bonzai command`,
+	Description: helpdoc,
+	Commands:    []*Z.Cmd{help.Cmd},
+	Call: func(x *Z.Cmd, args ...string) error {
+		// TODO
+		return nil
+	},
+}
