@@ -1,22 +1,20 @@
 package bon
 
 import (
-	_ "embed"
 	"fmt"
+	"strings"
+	"text/template"
 
 	Z "github.com/rwxrob/bonzai/z"
 	"github.com/rwxrob/help"
 )
 
-//go:embed desc/help.md
-var helpdoc string
-
 var Cmd = &Z.Cmd{
 	Name:        `bon`,
 	Aliases:     []string{`bonzai`},
-	Summary:     `bonzai helper utility`,
-	Description: helpdoc,
-	Version:     `v0.1.1`,
+	Summary:     help.S(_bon),
+	Description: help.D(_bon),
+	Version:     `v0.1.2`,
 	Copyright:   `Copyright 2022 Rob Muhlestein`,
 	Site:        `rwxrob.tv`,
 	Source:      `git@github.com:rwxrob/bon.git`,
@@ -25,20 +23,28 @@ var Cmd = &Z.Cmd{
 	Commands:    []*Z.Cmd{help.Cmd, commandCmd},
 }
 
-//go:embed desc/command.md
-var commanddoc string
-
-//go:embed tmpl/command.tmpl
-var commandtmpl string
-
 var commandCmd = &Z.Cmd{
 	Name:        `command`,
 	Aliases:     []string{`cmd`},
-	Summary:     `print code for new bonzai.Cmd`,
-	Description: commanddoc,
+	Summary:     help.S(_command),
+	Description: help.D(_command),
 	Commands:    []*Z.Cmd{help.Cmd},
-	Call: func(_ *Z.Cmd, _ ...string) error {
-		fmt.Print(commandtmpl)
+
+	Call: func(_ *Z.Cmd, args ...string) error {
+
+		if len(args) == 0 {
+			args = append(args, `foo`)
+		}
+
+		t, err := template.New("t").Parse(commandtmpl)
+		if err != nil {
+			return err
+		}
+		var buf strings.Builder
+		if err := t.Execute(&buf, struct{ Name string }{args[0]}); err != nil {
+			return err
+		}
+		fmt.Print(buf.String())
 		return nil
 	},
 }

@@ -1,9 +1,9 @@
 
-var Cmd = &Z.Cmd{
-	Name:        `command`,
-	Aliases:     []string{`cmd`},
-	Summary:     help.S(_command),
-	Description: help.D(_command),
+var {{.Name}}Cmd = &Z.Cmd{
+	Name:        `{{.Name}}`,
+	Aliases:     []string{``},
+	Summary:     help.S(_{{.Name}}),
+	Description: help.D(_{{.Name}}),
 	Commands:    []*Z.Cmd{help.Cmd},
 
 	Call: func(x *Z.Cmd, args ...string) error {
