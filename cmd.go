@@ -14,7 +14,7 @@ var Cmd = &Z.Cmd{
 	Aliases:     []string{`bonzai`},
 	Summary:     help.S(_bon),
 	Description: help.D(_bon),
-	Version:     `v0.1.2`,
+	Version:     `v0.1.3`,
 	Copyright:   `Copyright 2022 Rob Muhlestein`,
 	Site:        `rwxrob.tv`,
 	Source:      `git@github.com:rwxrob/bon.git`,
