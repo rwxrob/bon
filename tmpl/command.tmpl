@@ -2,9 +2,47 @@
 var {{.Name}}Cmd = &Z.Cmd{
 	Name:        `{{.Name}}`,
 	Aliases:     []string{``},
+	Usage:       `[help]`,
+	Version:     `v0.0.1`,
+	Copyright:   `Copyright 2023`,
+	License:     `Apache-2.0`,
+	Site:        `user.github.io/{{.Name}}`,
+	Source:      `git@github.com:user/{{.Name}}.git`,
+	Issues:      `github.com/user/{{.Name}}/issues`,
 	Summary:     help.S(_{{.Name}}),
 	Description: help.D(_{{.Name}}),
+
+	Params:      []string{},
+	Hidden:      []string{},
 	Commands:    []*Z.Cmd{help.Cmd},
+
+	VarDefs:     VarVals{},
+	ConfVars: false,
+
+	MinArgs: 1,
+	MaxArgs: 1,
+	NumArgs: 1,
+	NoArgs: false,
+	MinParm: 0,
+	MaxParm: 0,
+	UseConf: false,
+	UseVars: true,
+
+	ShortCuts: Z.ArgMap{
+		`set`: {`var`, `set`},
+		`get`: {`var`, `get`},
+	},
+
+	Comp: compfile.New(),
+
+	Dynamic: template.FuncMap{
+		`foo`: func() string{return foo},
+	},
+
+	Init: func(x *Z.Cmd, args ...string) error {
+		// TODO
+		return nil
+	},
 
 	Call: func(x *Z.Cmd, args ...string) error {
 		// TODO
