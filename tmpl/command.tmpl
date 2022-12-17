@@ -30,6 +30,7 @@ var {{.Name}}Cmd = &Z.Cmd{
 
 	ShortCuts: Z.ArgMap{
 		`set`: {`var`, `set`},
+		`unset`: {`var`, `unset`},
 		`get`: {`var`, `get`},
 	},
 
@@ -45,7 +46,7 @@ var {{.Name}}Cmd = &Z.Cmd{
 	},
 
 	Call: func(x *Z.Cmd, args ...string) error {
-		// TODO
+    term.Print(`would {{.Name}}` )
 		return nil
 	},
 }
